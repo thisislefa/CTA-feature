@@ -1,0 +1,142 @@
+/* --- Variables & Reset --- */
+        :root {
+            --font-main: 'Inter', sans-serif;
+            --color-text-light: #ffffff;
+            --color-text-muted: rgba(255, 255, 255, 0.8);
+            --color-bg-dark: #111111;
+            --btn-color: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f8f8f8;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- Main Section Styles --- */
+        .cta-section {
+            width: 100%;
+            max-width: 1600px; /* Allows for a wide, immersive design */
+            min-height: 700px;
+            overflow: hidden;
+            border-radius: 8px; /* Slight rounding for the whole block */
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-color: var(--color-bg-dark);
+        }
+
+        /* Background Layer - Mimics the blurred light effect */
+        .cta-background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /* Using a placeholder image with dark, abstract, blurred light */
+            background-image: url('https://images.unsplash.com/photo-1671996610887-888bda279b38?q=80&w=783&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3; /* Control the visibility of the background light */
+            /* Ensure the edges are dark */
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9); 
+        }
+
+        /* Content Layer */
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            color: var(--color-text-light);
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Grid Layout for Title and Description */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Left Side: Title */
+        .cta-title {
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 500px;
+        }
+
+        /* Right Side: Description and Button */
+        .cta-group {
+            padding-top: 1.5rem; /* Optical alignment with the title */
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .cta-description {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            max-width: 480px;
+        }
+
+        /* Button */
+        .cta-button {
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            background-color: var(--color-text-light); /* White background */
+            color: var(--btn-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-1px);
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 1024px) {
+            .cta-title {
+                font-size: 3.5rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-group {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                min-height: 400px;
+                padding: 3rem 1.5rem;
+            }
+            .cta-title {
+                font-size: 2.5rem;
+            }
+            .cta-description {
+                font-size: 1rem;
+            }
+        }
